@@ -8,6 +8,6 @@ Run local Saiga LLM with Streamlit UI
 3. Run:
 
 ```
-$ pip install llama_cpp streamlit
+$ pip install llama-cpp-python streamlit
 $ streamlit run mistral_llamacpp_ui.py
 ```
