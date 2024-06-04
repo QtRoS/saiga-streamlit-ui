@@ -15,7 +15,7 @@ ROLE_TOKENS = {
     "bot": BOT_TOKEN,
 }
 
-MODEL_BASE_PATH = "g:/Dev/llm/models"
+MODEL_BASE_PATH = "."
 MODEL_NAMES = ["saiga-mistral-q8_0.gguf"]
 
 
@@ -46,7 +46,7 @@ def load_model(model_name: str) -> tuple:
     full_path = f"{MODEL_BASE_PATH}/{model_name}" # TODO UGLY
     print(f"{full_path=}")
 
-    model = Llama(model_path=full_path, n_ctx=n_ctx, n_parts=1,)
+    model = Llama(model_path=full_path, n_ctx=n_ctx, n_parts=1, n_gpu_layers=-1)
     print(f"Model {model_name} loaded: {model}")
 
     system_tokens = get_message_tokens(model, role="system", content=SYSTEM_PROMPT)
